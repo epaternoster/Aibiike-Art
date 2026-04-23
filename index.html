@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aibiike Art – Commissions</title>
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', serif;
+      color: #2c2c2c;
+      background: #fdf8f4;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ── Colour palette ── */
+    :root {
+      --accent: #b07b4f;
+      --accent-dark: #8a5e38;
+      --light: #fdf8f4;
+      --dark: #2c2c2c;
+    }
+
+    /* ── Navigation ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--light);
+      border-bottom: 1px solid #e8d9cb;
+      padding: 0 2rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      height: 64px;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      color: var(--accent-dark);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem 5rem;
+      background: linear-gradient(160deg, #fdf8f4 60%, #f3e8da);
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: var(--accent-dark);
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+      color: #5a4a3a;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 4px;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      transition: background 0.2s;
+    }
+
+    .btn:hover { background: var(--accent-dark); }
+
+    /* ── Section shared ── */
+    section { padding: 4rem 2rem; }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      color: var(--accent-dark);
+      margin-bottom: 0.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 50%;
+      height: 3px;
+      background: var(--accent);
+      margin-top: 6px;
+    }
+
+    /* ── Commission tiers ── */
+    .tiers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .tier-card {
+      background: #fff;
+      border: 1px solid #e8d9cb;
+      border-radius: 8px;
+      padding: 1.75rem 1.5rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .tier-card:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.08); }
+
+    .tier-card h3 {
+      font-size: 1.15rem;
+      color: var(--accent-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .tier-card .price {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .tier-card ul {
+      list-style: disc;
+      padding-left: 1.2rem;
+      color: #5a4a3a;
+      font-size: 0.95rem;
+    }
+
+    /* ── Process ── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+      counter-reset: step;
+    }
+
+    .step {
+      position: relative;
+      padding: 1.5rem 1.25rem 1.5rem 3.5rem;
+      background: #fff;
+      border-left: 4px solid var(--accent);
+      border-radius: 4px;
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: -1px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--accent);
+      color: #fff;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .step h4 { color: var(--accent-dark); margin-bottom: 0.3rem; }
+    .step p { font-size: 0.9rem; color: #5a4a3a; }
+
+    /* ── TOS ── */
+    #tos { background: #f3e8da; }
+
+    .tos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .tos-item {
+      padding: 1.25rem;
+      background: #fff;
+      border-radius: 6px;
+      font-size: 0.93rem;
+      color: #4a3a2a;
+    }
+
+    .tos-item strong { display: block; color: var(--accent-dark); margin-bottom: 0.3rem; }
+
+    /* ── Contact ── */
+    #contact { text-align: center; }
+
+    .contact-links {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1.4rem;
+      border: 2px solid var(--accent);
+      border-radius: 4px;
+      font-size: 0.95rem;
+      color: var(--accent-dark);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .contact-links a:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+      color: #9a8070;
+      border-top: 1px solid #e8d9cb;
+    }
+
+    /* ── Status banner ── */
+    .status-banner {
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: bold;
+      letter-spacing: 0.04em;
+    }
+
+    .status-open { background: #d4edda; color: #155724; }
+    .status-closed { background: #f8d7da; color: #721c24; }
+  </style>
+</head>
+<body>
+
+  <!-- Status Banner -->
+  <div class="status-banner status-open">✦ Commissions are currently OPEN ✦</div>
+
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <span class="logo">Aibiike Art</span>
+      <ul class="nav-links">
+        <li><a href="#commissions">Commissions</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#tos">ToS</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Aibiike Art</h1>
+    <p>Original character art, illustrations, and custom commissions — made with love and care just for you.</p>
+    <a class="btn" href="#commissions">View Commission Info</a>
+  </section>
+
+  <!-- Commission Tiers -->
+  <section id="commissions">
+    <div class="section-inner">
+      <h2 class="section-title">Commission Types</h2>
+      <div class="tiers">
+
+        <div class="tier-card">
+          <h3>Sketch</h3>
+          <div class="price">$15+</div>
+          <ul>
+            <li>Pencil or digital sketch</li>
+            <li>Simple shading</li>
+            <li>Bust or half-body</li>
+            <li>1–2 characters</li>
+          </ul>
+        </div>
+
+        <div class="tier-card">
+          <h3>Flat Colour</h3>
+          <div class="price">$30+</div>
+          <ul>
+            <li>Flat colours with ink lines</li>
+            <li>Full body available</li>
+            <li>Simple background</li>
+            <li>1–2 characters</li>
+          </ul>
+        </div>
+
+        <div class="tier-card">
+          <h3>Shaded Illustration</h3>
+          <div class="price">$60+</div>
+          <ul>
+            <li>Full shading &amp; rendering</li>
+            <li>Full body</li>
+            <li>Detailed background optional</li>
+            <li>1–3 characters</li>
+          </ul>
+        </div>
+
+        <div class="tier-card">
+          <h3>Reference Sheet</h3>
+          <div class="price">$80+</div>
+          <ul>
+            <li>Front &amp; back views</li>
+            <li>Colour palette swatches</li>
+            <li>Expression samples</li>
+            <li>Extra details as needed</li>
+          </ul>
+        </div>
+
+      </div>
+      <p style="margin-top:1.5rem; color:#5a4a3a; font-size:0.93rem;">
+        * Prices are base rates. Complex designs, additional characters, and detailed backgrounds may increase the cost.
+        All prices are in USD.
+      </p>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process" style="background:#fdf0e6;">
+    <div class="section-inner">
+      <h2 class="section-title">How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <h4>Send a Request</h4>
+          <p>Fill out the commission form or DM me with your character details and commission type.</p>
+        </div>
+        <div class="step">
+          <h4>Approval &amp; Quote</h4>
+          <p>I'll review your request and send a final price quote within 1–3 days.</p>
+        </div>
+        <div class="step">
+          <h4>Payment</h4>
+          <p>A 50% upfront payment is required before work begins. The remainder is due on completion.</p>
+        </div>
+        <div class="step">
+          <h4>Sketch Preview</h4>
+          <p>I'll share a WIP sketch for your feedback before moving to final lineart and colour.</p>
+        </div>
+        <div class="step">
+          <h4>Final Delivery</h4>
+          <p>Once the remaining payment is received, you'll get the high-resolution file.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Terms of Service -->
+  <section id="tos">
+    <div class="section-inner">
+      <h2 class="section-title">Terms of Service</h2>
+      <div class="tos-grid">
+        <div class="tos-item">
+          <strong>Payment</strong>
+          Payment is via PayPal (invoiced). 50% upfront, 50% on completion. No refunds after lineart is approved.
+        </div>
+        <div class="tos-item">
+          <strong>Usage Rights</strong>
+          You may use the artwork for personal, non-commercial purposes. Credit is appreciated.
+          Commercial use requires a separate license — please ask.
+        </div>
+        <div class="tos-item">
+          <strong>Revisions</strong>
+          Up to two minor revisions are included. Major changes or additional revisions may incur extra fees.
+        </div>
+        <div class="tos-item">
+          <strong>Turnaround</strong>
+          Estimated 2–6 weeks depending on complexity and queue length. Rush slots may be available for an extra fee.
+        </div>
+        <div class="tos-item">
+          <strong>I Will Draw</strong>
+          Original characters, fan art, anthro/furry, mild romance, and most fandom content.
+        </div>
+        <div class="tos-item">
+          <strong>I Will Not Draw</strong>
+          NSFW, real people without consent, hate symbols, or anything I'm uncomfortable with.
+          I reserve the right to decline any request.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="section-inner">
+      <h2 class="section-title">Get in Touch</h2>
+      <p style="margin-top:1rem; color:#5a4a3a;">
+        Ready to commission? Have a question? Reach out through any of the links below!
+      </p>
+      <div class="contact-links">
+        <a href="mailto:aibiike.art@example.com">✉ Email</a>
+        <a href="https://twitter.com/" target="_blank" rel="noopener">🐦 Twitter / X</a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener">📷 Instagram</a>
+        <a href="https://ko-fi.com/" target="_blank" rel="noopener">☕ Ko-fi</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© <span id="yr"></span> Aibiike Art · All artwork is the property of the artist.</p>
+    <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+  </footer>
+
+</body>
+</html>
