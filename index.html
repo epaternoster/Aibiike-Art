@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aibiike | Classical Portraiture & Traditional Drawing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'EB Garamond', serif;
+            scroll-behavior: smooth;
+            background-color: #f4f1ea; 
+        }
+        h1, h2, h3, .serif-heading {
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: -0.01em;
+        }
+        .parchment-texture {
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+        }
+        .atelier-border {
+            border: 1px solid #d1ccc0;
+            padding: 2rem;
+            position: relative;
+        }
+        .atelier-border::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border: 1px solid #d1ccc0;
+            pointer-events: none;
+        }
+        .nav-link {
+            position: relative;
+            display: inline-block;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #444;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="parchment-texture text-stone-800">
+
+    <!-- Header / Navigation -->
+    <nav class="w-full py-8 px-10 flex flex-col items-center border-b border-stone-300 bg-[#f4f1ea]">
+        <h1 class="text-4xl md:text-5xl font-light tracking-widest uppercase mb-4">Aibiike</h1>
+        <div class="flex gap-8 text-sm uppercase tracking-[0.2em] font-medium opacity-80">
+            <a href="#gallery" class="nav-link">The Gallery</a>
+            <a href="#commission-section" class="nav-link">Commissions</a>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 text-center max-w-4xl mx-auto">
+        <span class="text-xs uppercase tracking-[0.4em] text-stone-500 mb-6 block">Traditional Academic Arts</span>
+        <h2 class="text-5xl md:text-6xl italic mb-8 leading-tight">The beauty of light and shadow.</h2>
+        <div class="w-24 h-px bg-stone-400 mx-auto mb-10"></div>
+        <p id="artist-bio" class="mt-6 text-xl max-w-2xl mx-auto leading-relaxed opacity-90 italic">
+            I am <strong>Aibiike Kydykbekova</strong>, a Junior at the <strong>Arts Academy at Benjamin Rush</strong>. I specialize in the art of portraiture and traditional drawing mediums such as <strong>graphite, charcoal, and ink</strong>. I would love to create a special piece for you to treasure—capturing the timeless essence of your subjects on fine drawing paper.
+        </p>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 px-6 max-w-7xl mx-auto bg-[#edeae1] rounded-sm shadow-inner">
+        <div class="text-center mb-16">
+            <h3 class="text-3xl uppercase tracking-widest mb-2">Selected Folio</h3>
+            <p class="italic text-stone-500">Exploring texture and form through traditional media.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Piece 1 -->
+            <div class="group atelier-border bg-[#f9f8f4] p-4">
+                <div class="overflow-hidden aspect-[4/5] relative shadow-lg">
+                    <img src="https://i.postimg.cc/506T92H8/IMG-9178.jpg" alt="In Memoriam Portrait" class="w-full h-full object-cover grayscale brightness-110 group-hover:scale-105 transition duration-1000">
+                </div>
+                <div class="mt-6 text-center">
+                    <h4 class="text-lg italic font-semibold">In Memoriam Portrait</h4>
+                    <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-1">Graphite on Paper</p>
+                </div>
+            </div>
+
+            <!-- Piece 2 -->
+            <div class="group atelier-border bg-[#f9f8f4] p-4">
+                <div class="overflow-hidden aspect-[4/5] relative shadow-lg">
+                    <img src="https://i.postimg.cc/tTYwR413/IMG-9177.jpg" alt="Happy Customer" class="w-full h-full object-cover grayscale brightness-110 group-hover:scale-105 transition duration-1000">
+                </div>
+                <div class="mt-6 text-center">
+                    <h4 class="text-lg italic font-semibold">Happy Customer</h4>
+                    <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-1">In memoriam portrait</p>
+                </div>
+            </div>
+
+            <!-- Piece 3 -->
+            <div class="group atelier-border bg-[#f9f8f4] p-4">
+                <div class="overflow-hidden aspect-[4/5] relative shadow-lg">
+                    <img src="https://i.postimg.cc/TP2BS9T3/IMG-4801.jpg" alt="First Commission" class="w-full h-full object-cover grayscale brightness-110 group-hover:scale-105 transition duration-1000">
+                </div>
+                <div class="mt-6 text-center">
+                    <h4 class="text-lg italic font-semibold">My first commission!</h4>
+                    <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-1">Happy Customer</p>
+                </div>
+            </div>
+
+            <!-- Piece 4 -->
+            <div class="group atelier-border bg-[#f9f8f4] p-4">
+                <div class="overflow-hidden aspect-[4/5] relative shadow-lg">
+                    <img src="https://i.postimg.cc/wBWndmB9/IMG-4800.jpg" alt="Theatrical Portrait" class="w-full h-full object-cover grayscale brightness-110 group-hover:scale-105 transition duration-1000">
+                </div>
+                <div class="mt-6 text-center">
+                    <h4 class="text-lg italic font-semibold">Theatrical Portrait</h4>
+                    <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-1">Colored Pencil on Paper</p>
+                </div>
+            </div>
+
+            <!-- Piece 5 -->
+            <div class="group atelier-border bg-[#f9f8f4] p-4">
+                <div class="overflow-hidden aspect-[4/5] relative shadow-lg">
+                    <img src="https://i.postimg.cc/tgr8HxgZ/AP-Progress-Photo(s)-Week-1-(Sep-4-2025-at-7-22-PM)-2.jpg" alt="Bonobos" class="w-full h-full object-cover grayscale brightness-110 group-hover:scale-105 transition duration-1000">
+                </div>
+                <div class="mt-6 text-center">
+                    <h4 class="text-lg italic font-semibold">Bonobos</h4>
+                    <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-1">Graphite on Paper</p>
+                </div>
+            </div>
+
+            <!-- Piece 6 -->
+            <div class="group atelier-border bg-[#f9f8f4] p-4">
+                <div class="overflow-hidden aspect-[4/5] relative shadow-lg">
+                    <img src="https://i.postimg.cc/wBWndmBN/IMG-6212.jpg" alt="Tiger" class="w-full h-full object-cover grayscale brightness-110 group-hover:scale-105 transition duration-1000">
+                </div>
+                <div class="mt-6 text-center">
+                    <h4 class="text-lg italic font-semibold">Tiger</h4>
+                    <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-1">Charcoal and Ink on Paper</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commission Section -->
+    <section id="commission-section" class="py-24 px-6 max-w-3xl mx-auto">
+        <div class="atelier-border bg-white shadow-xl p-12 text-center">
+            <h3 class="text-4xl italic mb-4">Commission a Drawing</h3>
+            <div class="w-16 h-px bg-stone-300 mx-auto mb-8"></div>
+            
+            <p class="text-xl text-stone-700 italic leading-relaxed mb-10">
+                Bring your favorite photo to life. Please email me or contact me through Instagram and I will get back to you. Thank you!
+            </p>
+
+            <div class="flex flex-col items-center gap-4">
+                <a href="mailto:10069386@philasd.org" class="text-sm uppercase tracking-[0.2em] font-bold text-stone-800 hover:text-stone-500 transition border-b border-stone-300 pb-1">
+                    Email: 10069386@philasd.org
+                </a>
+                <a href="https://instagram.com/aibiike.art" target="_blank" class="text-sm uppercase tracking-[0.2em] font-bold text-stone-800 hover:text-stone-500 transition border-b border-stone-300 pb-1">
+                    Instagram: @aibiike.art
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 border-t border-stone-300 text-center">
+        <p class="serif-heading italic text-4xl text-stone-900">Aibiike</p>
+        <p class="text-[10px] uppercase tracking-[0.5em] text-stone-500 mt-2">Traditional Artist</p>
+        <p class="text-[10px] text-stone-400 tracking-widest mt-12">&copy; 2024 Aibiike. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
